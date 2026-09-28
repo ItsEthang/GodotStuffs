@@ -2,6 +2,9 @@
 
 [ext_resource type="Script" uid="uid://dv77v54c5758j" path="res://Scenes/Game/Game.cs" id="1_rdw05"]
 [ext_resource type="Texture2D" uid="uid://cans3ib37iggd" path="res://Assets/background/rocks_2.png" id="2_gwu2e"]
+[ext_resource type="PackedScene" uid="uid://bu6g247xbjbdx" path="res://Scenes/Tappy/Tappy.tscn" id="3_xbxml"]
+[ext_resource type="PackedScene" uid="uid://bles33wu866yv" path="res://Scenes/Barrier/Barrier.tscn" id="4_ln2h6"]
+[ext_resource type="PackedScene" uid="uid://dfdfqenc4nfie" path="res://Scenes/LaserPipe/LaserPipe.tscn" id="5_y3kpf"]
 
 [node name="Game" type="Node2D" unique_id=1402321465]
 script = ExtResource("1_rdw05")
@@ -10,3 +13,19 @@ script = ExtResource("1_rdw05")
 position = Vector2(-890, -182)
 texture = ExtResource("2_gwu2e")
 centered = false
+
+[node name="Tappy" parent="." unique_id=1872132317 instance=ExtResource("3_xbxml")]
+position = Vector2(72, 366)
+
+[node name="Barrier" parent="." unique_id=170783742 instance=ExtResource("4_ln2h6")]
+
+[node name="LaserPipe" parent="." unique_id=1178301400 instance=ExtResource("5_y3kpf")]
+position = Vector2(304, 472)
+
+[node name="LaserPipe2" parent="." unique_id=1346687636 instance=ExtResource("5_y3kpf")]
+position = Vector2(468, 233)
+
+[node name="LaserPipe3" parent="." unique_id=834284422 instance=ExtResource("5_y3kpf")]
+position = Vector2(160, 305)
+
+[editable path="Tappy"]

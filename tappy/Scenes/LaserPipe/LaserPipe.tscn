@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://dfdfqenc4nfie"]
+
+[ext_resource type="PackedScene" uid="uid://gsjg6ojgmne2" path="res://Scenes/Laser/Laser.tscn" id="1_ebkb0"]
+[ext_resource type="PackedScene" uid="uid://bpdqkw1xnlnay" path="res://Scenes/Pipe/Pipe.tscn" id="2_4oj2c"]
+
+[node name="LaserPipe" type="Node2D" unique_id=1178301400]
+
+[node name="Laser" parent="." unique_id=1371732248 instance=ExtResource("1_ebkb0")]
+
+[node name="UpperPipe" parent="." unique_id=209877243 instance=ExtResource("2_4oj2c")]
+position = Vector2(0, -80)
+rotation = 3.1415927
+
+[node name="LowerPipe" parent="." unique_id=1648970829 instance=ExtResource("2_4oj2c")]
+position = Vector2(0, 80)
