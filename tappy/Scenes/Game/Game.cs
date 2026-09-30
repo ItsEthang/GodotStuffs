@@ -1,15 +1,33 @@
 using Godot;
 using System;
+using System.ComponentModel;
 
 public partial class Game : Node2D
 {
-	// Called when the node enters the scene tree for the first time.
+	[Export] private Timer _spawnTimer;
+	[Export] private Marker2D _upperMarker;
+	[Export] private Marker2D _lowerMarker;
+	[Export] private Node2D _pipeParent;
+	private PackedScene pipeScene = GD.Load<PackedScene>("res://Scenes/LaserPipe/LaserPipe.tscn");
 	public override void _Ready()
 	{
+		_spawnTimer.Timeout += SpawnPipe;
+		_spawnTimer.Start();
 	}
 
-	// Called every frame. 'delta' is the elapsed time since the previous frame.
-	public override void _Process(double delta)
+	private void SpawnPipe()
 	{
+		Node2D pipe = pipeScene.Instantiate<Node2D>();
+		pipe.Position = GenerateSpawnLocation();
+		_pipeParent.AddChild(pipe);
+		_spawnTimer.WaitTime = GD.RandRange(1.4f, 2.5f);
+	}
+
+	private Vector2 GenerateSpawnLocation()
+	{
+		return new Vector2(
+			_upperMarker.Position.X,
+			(float)GD.RandRange(_upperMarker.Position.Y, _lowerMarker.Position.Y)
+		);
 	}
 }

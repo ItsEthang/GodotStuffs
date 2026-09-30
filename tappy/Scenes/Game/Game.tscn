@@ -4,10 +4,13 @@
 [ext_resource type="Texture2D" uid="uid://cans3ib37iggd" path="res://Assets/background/rocks_2.png" id="2_gwu2e"]
 [ext_resource type="PackedScene" uid="uid://bu6g247xbjbdx" path="res://Scenes/Tappy/Tappy.tscn" id="3_xbxml"]
 [ext_resource type="PackedScene" uid="uid://bles33wu866yv" path="res://Scenes/Barrier/Barrier.tscn" id="4_ln2h6"]
-[ext_resource type="PackedScene" uid="uid://dfdfqenc4nfie" path="res://Scenes/LaserPipe/LaserPipe.tscn" id="5_y3kpf"]
 
-[node name="Game" type="Node2D" unique_id=1402321465]
+[node name="Game" type="Node2D" unique_id=1402321465 node_paths=PackedStringArray("_spawnTimer", "_upperMarker", "_lowerMarker", "_pipeParent")]
 script = ExtResource("1_rdw05")
+_spawnTimer = NodePath("SpawnTimer")
+_upperMarker = NodePath("UpperSpawn")
+_lowerMarker = NodePath("LowerSpawn")
+_pipeParent = NodePath("PipeParent")
 
 [node name="Rocks2" type="Sprite2D" parent="." unique_id=1788523210]
 position = Vector2(-890, -182)
@@ -19,13 +22,15 @@ position = Vector2(72, 366)
 
 [node name="Barrier" parent="." unique_id=170783742 instance=ExtResource("4_ln2h6")]
 
-[node name="LaserPipe" parent="." unique_id=1178301400 instance=ExtResource("5_y3kpf")]
-position = Vector2(304, 472)
+[node name="UpperSpawn" type="Marker2D" parent="." unique_id=848033756]
+position = Vector2(540, 200)
 
-[node name="LaserPipe2" parent="." unique_id=1346687636 instance=ExtResource("5_y3kpf")]
-position = Vector2(468, 233)
+[node name="LowerSpawn" type="Marker2D" parent="." unique_id=66285840]
+position = Vector2(540, 654)
 
-[node name="LaserPipe3" parent="." unique_id=834284422 instance=ExtResource("5_y3kpf")]
-position = Vector2(160, 305)
+[node name="SpawnTimer" type="Timer" parent="." unique_id=1803842480]
+wait_time = 1.4
+
+[node name="PipeParent" type="Node2D" parent="." unique_id=22117414]
 
 [editable path="Tappy"]

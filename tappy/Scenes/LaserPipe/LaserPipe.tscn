@@ -1,9 +1,13 @@
 [gd_scene format=3 uid="uid://dfdfqenc4nfie"]
 
+[ext_resource type="Script" uid="uid://cd2ubht4cpsj2" path="res://Scenes/LaserPipe/LaserPipe.cs" id="1_4oj2c"]
 [ext_resource type="PackedScene" uid="uid://gsjg6ojgmne2" path="res://Scenes/Laser/Laser.tscn" id="1_ebkb0"]
 [ext_resource type="PackedScene" uid="uid://bpdqkw1xnlnay" path="res://Scenes/Pipe/Pipe.tscn" id="2_4oj2c"]
 
-[node name="LaserPipe" type="Node2D" unique_id=1178301400]
+[node name="LaserPipe" type="Node2D" unique_id=1178301400 node_paths=PackedStringArray("_visibleNotifier", "_lifeTimer")]
+script = ExtResource("1_4oj2c")
+_visibleNotifier = NodePath("VisibleNotifier2D")
+_lifeTimer = NodePath("LifeTimer")
 
 [node name="Laser" parent="." unique_id=1371732248 instance=ExtResource("1_ebkb0")]
 
@@ -13,3 +17,11 @@ rotation = 3.1415927
 
 [node name="LowerPipe" parent="." unique_id=1648970829 instance=ExtResource("2_4oj2c")]
 position = Vector2(0, 80)
+
+[node name="VisibleNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=1823821177]
+position = Vector2(54, 0)
+
+[node name="LifeTimer" type="Timer" parent="." unique_id=198442552]
+wait_time = 15.0
+one_shot = true
+autostart = true
