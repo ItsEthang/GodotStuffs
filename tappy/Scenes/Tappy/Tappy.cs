@@ -4,8 +4,8 @@ using System;
 public partial class Tappy : CharacterBody2D
 {
 	[Export] private float _jumpPower = -350f;
-
 	[Export] private AnimatedSprite2D _sprite;
+	[Export] private AnimationPlayer _animation;
 	private float _gravity = ProjectSettings.GetSetting("physics/2d/default_gravity").AsSingle();
 	private Vector2 vel;
 	private bool _jumped = false;
@@ -20,6 +20,7 @@ public partial class Tappy : CharacterBody2D
 		if (@event.IsActionPressed("jump"))
 		{
 			_jumped = true;
+			_animation.Play("jump");
 		}
 	}
 
@@ -39,9 +40,10 @@ public partial class Tappy : CharacterBody2D
 		}
 	}
 
-	private void Die()
+	public void Die()
 	{
-		_sprite.Stop();
-		SetPhysicsProcess(false);
+		// _sprite.Stop();
+		// SetPhysicsProcess(false);
+		GetTree().Paused = true;
 	}
 }

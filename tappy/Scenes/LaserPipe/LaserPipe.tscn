@@ -4,10 +4,13 @@
 [ext_resource type="PackedScene" uid="uid://gsjg6ojgmne2" path="res://Scenes/Laser/Laser.tscn" id="1_ebkb0"]
 [ext_resource type="PackedScene" uid="uid://bpdqkw1xnlnay" path="res://Scenes/Pipe/Pipe.tscn" id="2_4oj2c"]
 
-[node name="LaserPipe" type="Node2D" unique_id=1178301400 node_paths=PackedStringArray("_visibleNotifier", "_lifeTimer")]
+[node name="LaserPipe" type="Node2D" unique_id=1178301400 node_paths=PackedStringArray("_visibleNotifier", "_lifeTimer", "_upperPipe", "_lowerPipe", "_laser")]
 script = ExtResource("1_4oj2c")
 _visibleNotifier = NodePath("VisibleNotifier2D")
 _lifeTimer = NodePath("LifeTimer")
+_upperPipe = NodePath("UpperPipe")
+_lowerPipe = NodePath("LowerPipe")
+_laser = NodePath("Laser")
 
 [node name="Laser" parent="." unique_id=1371732248 instance=ExtResource("1_ebkb0")]
 

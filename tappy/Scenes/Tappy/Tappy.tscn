@@ -35,9 +35,47 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_46n2r"]
 radius = 25.019993
 
-[node name="Tappy" type="CharacterBody2D" unique_id=1872132317 node_paths=PackedStringArray("_sprite")]
+[sub_resource type="Animation" id="Animation_46n2r"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_8i0lq"]
+resource_name = "jump"
+length = 0.25
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:rotation")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.16666667, 0.23333333),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [-0.3298672286269279, -0.8813912722571364, -0.3298672286269279, 0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ssy2e"]
+_data = {
+&"RESET": SubResource("Animation_46n2r"),
+&"jump": SubResource("Animation_8i0lq")
+}
+
+[node name="Tappy" type="CharacterBody2D" unique_id=1872132317 node_paths=PackedStringArray("_sprite", "_animation")]
 script = ExtResource("2_46n2r")
 _sprite = NodePath("AnimatedSprite2D")
+_animation = NodePath("AnimationPlayer")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=430115080]
 scale = Vector2(0.7, 0.7)
@@ -49,3 +87,6 @@ frame_progress = 0.70366263
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1914648292]
 position = Vector2(3, 0)
 shape = SubResource("CircleShape2D_46n2r")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=396342241]
+libraries/ = SubResource("AnimationLibrary_ssy2e")
