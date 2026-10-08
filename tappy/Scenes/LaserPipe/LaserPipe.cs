@@ -21,25 +21,25 @@ public partial class LaserPipe : Node2D
 		_laser.BodyExited += OnPointScored;
 	}
 
-    private void OnPointScored(Node2D body)
-    {
-        if (body is Tappy)
+	private void OnPointScored(Node2D body)
+	{
+		if (body is Tappy)
 		{
 			GD.Print("Score: ");
 		}
-    }
+	}
 
 
-    private void OnPipeCollision(Node2D body)
-    {
-        if (body is Tappy)
+	private void OnPipeCollision(Node2D body)
+	{
+		if (body is Tappy)
 		{
 			(body as Tappy).Die();
 		}
-    }
+	}
 
-    // Called every frame. 'delta' is the elapsed time since the previous frame.
-    public override void _PhysicsProcess(double delta)
+	// Called every frame. 'delta' is the elapsed time since the previous frame.
+	public override void _PhysicsProcess(double delta)
 	{
 		Position += Vector2.Left * SCROLL_SPEED * (float)delta;
 	}

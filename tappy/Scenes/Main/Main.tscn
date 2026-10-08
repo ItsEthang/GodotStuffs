@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://bk7wx4bliuk8n"]
 
+[ext_resource type="Script" uid="uid://dhowxeuaja2jc" path="res://Scenes/Main/Main.cs" id="1_aw1lf"]
 [ext_resource type="FontFile" uid="uid://cneedlbnotp5q" path="res://Assets/fonts/LuckiestGuy-Regular.ttf" id="1_p8rbg"]
 [ext_resource type="LabelSettings" uid="uid://b2bkp6aafonew" path="res://Assets/resources/LabelGreen96.tres" id="2_i3fi7"]
 [ext_resource type="LabelSettings" uid="uid://dcceex8snq4fx" path="res://Assets/resources/LabelYellow24.tres" id="3_cmk6n"]
@@ -51,6 +52,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_aw1lf")
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=1965932227]
 layout_mode = 1
