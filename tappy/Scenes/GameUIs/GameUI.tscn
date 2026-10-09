@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://fcpxfet2x3qq"]
 
 [ext_resource type="LabelSettings" uid="uid://dcceex8snq4fx" path="res://Assets/resources/LabelYellow24.tres" id="1_4qs58"]
+[ext_resource type="LabelSettings" uid="uid://dxm4tmvamwsic" path="res://Assets/resources/LabelLightBlue48.tres" id="2_impck"]
 
 [node name="GameUI" type="Control" unique_id=1279397738]
 layout_mode = 3
@@ -14,6 +15,10 @@ grow_vertical = 2
 layout_mode = 0
 offset_right = 486.0
 offset_bottom = 848.0
+theme_override_constants/margin_left = 24
+theme_override_constants/margin_top = 24
+theme_override_constants/margin_right = 24
+theme_override_constants/margin_bottom = 24
 
 [node name="Score" type="Label" parent="MarginContainer" unique_id=375300170]
 layout_mode = 2
@@ -24,3 +29,12 @@ label_settings = ExtResource("1_4qs58")
 
 [node name="Label2" type="Label" parent="MarginContainer" unique_id=51210166]
 layout_mode = 2
+size_flags_horizontal = 4
+text = "GAME OVER"
+label_settings = ExtResource("2_impck")
+
+[node name="Label3" type="Label" parent="MarginContainer" unique_id=1617119481]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "PRESS SPACE"
+label_settings = ExtResource("2_impck")
