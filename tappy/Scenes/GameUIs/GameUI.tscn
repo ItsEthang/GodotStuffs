@@ -3,8 +3,10 @@
 [ext_resource type="LabelSettings" uid="uid://dcceex8snq4fx" path="res://Assets/resources/LabelYellow24.tres" id="1_4qs58"]
 [ext_resource type="Script" uid="uid://ehvd1kehuig0" path="res://Scenes/GameUIs/GameUi.cs" id="1_ylv3x"]
 [ext_resource type="LabelSettings" uid="uid://dxm4tmvamwsic" path="res://Assets/resources/LabelLightBlue48.tres" id="2_impck"]
+[ext_resource type="AudioStream" uid="uid://wjnyhwhbyrd" path="res://Assets/audio/game_over.wav" id="4_40xq2"]
 
-[node name="GameUI" type="Control" unique_id=1279397738 node_paths=PackedStringArray("_gameOverLabel")]
+[node name="GameUI" type="Control" unique_id=1279397738 node_paths=PackedStringArray("_gameOverLabel", "_pressSpaceLabel", "_gameOverLabelTimer", "_gameOverSound")]
+process_mode = 3
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -13,6 +15,9 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_ylv3x")
 _gameOverLabel = NodePath("MarginContainer/GameOver")
+_pressSpaceLabel = NodePath("MarginContainer/PressSpace")
+_gameOverLabelTimer = NodePath("GameOverLabelTimer")
+_gameOverSound = NodePath("GameOverSound")
 
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=10418008]
 layout_mode = 1
@@ -46,3 +51,10 @@ layout_mode = 2
 size_flags_horizontal = 4
 text = "PRESS SPACE"
 label_settings = ExtResource("2_impck")
+
+[node name="GameOverLabelTimer" type="Timer" parent="." unique_id=1438589932]
+wait_time = 1.5
+one_shot = true
+
+[node name="GameOverSound" type="AudioStreamPlayer" parent="." unique_id=435534208]
+stream = ExtResource("4_40xq2")

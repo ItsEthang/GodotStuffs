@@ -3,7 +3,6 @@ using System;
 
 public partial class Tappy : CharacterBody2D
 {
-	[Signal] public delegate void OnTappyDiedEventHandler();
 	[Export] private float _jumpPower = -350f;
 	[Export] private AnimatedSprite2D _sprite;
 	[Export] private AnimationPlayer _animation;
@@ -25,7 +24,6 @@ public partial class Tappy : CharacterBody2D
 		}
 	}
 
-
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
 	public override void _PhysicsProcess(double delta)
 	{
@@ -43,7 +41,7 @@ public partial class Tappy : CharacterBody2D
 
 	public void Die()
 	{
-		EmitSignal(SignalName.OnTappyDied);
+        SignalHub.EmitOnTappyDied();
 		GetTree().Paused = true;
 	}
 }

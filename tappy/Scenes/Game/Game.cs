@@ -10,13 +10,6 @@ public partial class Game : Node
 	[Export] private Marker2D _lowerMarker;
 	[Export] private Node2D _pipeParent;
 	private PackedScene pipeScene = GD.Load<PackedScene>("res://Scenes/LaserPipe/LaserPipe.tscn");
-	public override void _UnhandledInput(InputEvent @event)
-	{
-		if (@event.IsActionPressed("ui_cancel"))
-		{
-			GameManager.LoadMainScene();
-		}
-	}
 
 	public override void _Ready()
 	{

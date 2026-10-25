@@ -72,7 +72,7 @@ _data = {
 &"jump": SubResource("Animation_8i0lq")
 }
 
-[node name="Tappy" type="CharacterBody2D" unique_id=1872132317 node_paths=PackedStringArray("_sprite", "_animation") groups=["tappy"]]
+[node name="Tappy" type="CharacterBody2D" unique_id=1872132317 node_paths=PackedStringArray("_sprite", "_animation")]
 script = ExtResource("2_46n2r")
 _sprite = NodePath("AnimatedSprite2D")
 _animation = NodePath("AnimationPlayer")
