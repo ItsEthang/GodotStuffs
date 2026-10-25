@@ -3,7 +3,7 @@ using System;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 
-public partial class Game : Node2D
+public partial class Game : Node
 {
 	[Export] private Timer _spawnTimer;
 	[Export] private Marker2D _upperMarker;

@@ -3,6 +3,7 @@ using System;
 
 public partial class Tappy : CharacterBody2D
 {
+	[Signal] public delegate void OnTappyDiedEventHandler();
 	[Export] private float _jumpPower = -350f;
 	[Export] private AnimatedSprite2D _sprite;
 	[Export] private AnimationPlayer _animation;
@@ -42,8 +43,7 @@ public partial class Tappy : CharacterBody2D
 
 	public void Die()
 	{
-		// _sprite.Stop();
-		// SetPhysicsProcess(false);
+		EmitSignal(SignalName.OnTappyDied);
 		GetTree().Paused = true;
 	}
 }

@@ -1,20 +1,26 @@
 [gd_scene format=3 uid="uid://fcpxfet2x3qq"]
 
 [ext_resource type="LabelSettings" uid="uid://dcceex8snq4fx" path="res://Assets/resources/LabelYellow24.tres" id="1_4qs58"]
+[ext_resource type="Script" uid="uid://ehvd1kehuig0" path="res://Scenes/GameUIs/GameUi.cs" id="1_ylv3x"]
 [ext_resource type="LabelSettings" uid="uid://dxm4tmvamwsic" path="res://Assets/resources/LabelLightBlue48.tres" id="2_impck"]
 
-[node name="GameUI" type="Control" unique_id=1279397738]
+[node name="GameUI" type="Control" unique_id=1279397738 node_paths=PackedStringArray("_gameOverLabel")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_ylv3x")
+_gameOverLabel = NodePath("MarginContainer/GameOver")
 
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=10418008]
-layout_mode = 0
-offset_right = 486.0
-offset_bottom = 848.0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 theme_override_constants/margin_left = 24
 theme_override_constants/margin_top = 24
 theme_override_constants/margin_right = 24
@@ -27,13 +33,15 @@ size_flags_vertical = 0
 text = "000"
 label_settings = ExtResource("1_4qs58")
 
-[node name="Label2" type="Label" parent="MarginContainer" unique_id=51210166]
+[node name="GameOver" type="Label" parent="MarginContainer" unique_id=51210166]
+visible = false
 layout_mode = 2
 size_flags_horizontal = 4
 text = "GAME OVER"
 label_settings = ExtResource("2_impck")
 
-[node name="Label3" type="Label" parent="MarginContainer" unique_id=1617119481]
+[node name="PressSpace" type="Label" parent="MarginContainer" unique_id=1617119481]
+visible = false
 layout_mode = 2
 size_flags_horizontal = 4
 text = "PRESS SPACE"
