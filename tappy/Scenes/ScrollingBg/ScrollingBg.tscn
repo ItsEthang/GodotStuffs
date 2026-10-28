@@ -1,0 +1,45 @@
+[gd_scene format=3 uid="uid://03srwbfxlqf"]
+
+[ext_resource type="Texture2D" uid="uid://bjibyqj06e775" path="res://Assets/background/sky.png" id="1_acems"]
+[ext_resource type="Texture2D" uid="uid://6c6l8smxeis1" path="res://Assets/background/clouds_1.png" id="1_fniuj"]
+[ext_resource type="Texture2D" uid="uid://b0emfkhdj5rl2" path="res://Assets/background/clouds_2.png" id="2_4pqae"]
+[ext_resource type="Texture2D" uid="uid://cxphm8tabphia" path="res://Assets/background/rocks_1.png" id="3_4pqae"]
+[ext_resource type="Texture2D" uid="uid://cans3ib37iggd" path="res://Assets/background/rocks_2.png" id="4_mp0ks"]
+
+[node name="ScrollingBg" type="Node2D" unique_id=1895451337]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=737047632]
+texture = ExtResource("1_acems")
+centered = false
+
+[node name="Parallax2D" type="Parallax2D" parent="." unique_id=912342816]
+repeat_size = Vector2(1920, 0)
+autoscroll = Vector2(-10, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="Parallax2D" unique_id=16500300]
+texture = ExtResource("1_fniuj")
+centered = false
+
+[node name="Parallax2D2" type="Parallax2D" parent="." unique_id=2002838264]
+repeat_size = Vector2(1920, 0)
+autoscroll = Vector2(-30, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="Parallax2D2" unique_id=1525351903]
+texture = ExtResource("2_4pqae")
+centered = false
+
+[node name="Parallax2D3" type="Parallax2D" parent="." unique_id=1849679081]
+repeat_size = Vector2(1920, 0)
+autoscroll = Vector2(-50, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="Parallax2D3" unique_id=1186730078]
+texture = ExtResource("3_4pqae")
+centered = false
+
+[node name="Parallax2D4" type="Parallax2D" parent="." unique_id=189347548]
+repeat_size = Vector2(1920, 0)
+autoscroll = Vector2(-70, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="Parallax2D4" unique_id=1490382012]
+texture = ExtResource("4_mp0ks")
+centered = false
