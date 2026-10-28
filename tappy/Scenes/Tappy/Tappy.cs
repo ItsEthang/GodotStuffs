@@ -6,6 +6,7 @@ public partial class Tappy : CharacterBody2D
 	[Export] private float _jumpPower = -350f;
 	[Export] private AnimatedSprite2D _sprite;
 	[Export] private AnimationPlayer _animation;
+	[Export] private AudioStreamPlayer _engineSound;
 	private float _gravity = ProjectSettings.GetSetting("physics/2d/default_gravity").AsSingle();
 	private Vector2 vel;
 	private bool _jumped = false;
@@ -41,6 +42,7 @@ public partial class Tappy : CharacterBody2D
 
 	public void Die()
 	{
+		_engineSound.Stop();
         SignalHub.EmitOnTappyDied();
 		GetTree().Paused = true;
 	}

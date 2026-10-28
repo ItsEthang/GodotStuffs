@@ -5,7 +5,7 @@
 [ext_resource type="LabelSettings" uid="uid://dxm4tmvamwsic" path="res://Assets/resources/LabelLightBlue48.tres" id="2_impck"]
 [ext_resource type="AudioStream" uid="uid://wjnyhwhbyrd" path="res://Assets/audio/game_over.wav" id="4_40xq2"]
 
-[node name="GameUI" type="Control" unique_id=1279397738 node_paths=PackedStringArray("_gameOverLabel", "_pressSpaceLabel", "_gameOverLabelTimer", "_gameOverSound")]
+[node name="GameUI" type="Control" unique_id=1279397738 node_paths=PackedStringArray("_gameOverLabel", "_pressSpaceLabel", "_scoreLabel", "_gameOverLabelTimer", "_gameOverSound")]
 process_mode = 3
 layout_mode = 3
 anchors_preset = 15
@@ -16,6 +16,7 @@ grow_vertical = 2
 script = ExtResource("1_ylv3x")
 _gameOverLabel = NodePath("MarginContainer/GameOver")
 _pressSpaceLabel = NodePath("MarginContainer/PressSpace")
+_scoreLabel = NodePath("MarginContainer/Score")
 _gameOverLabelTimer = NodePath("GameOverLabelTimer")
 _gameOverSound = NodePath("GameOverSound")
 

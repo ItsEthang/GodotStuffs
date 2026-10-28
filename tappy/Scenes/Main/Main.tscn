@@ -45,7 +45,7 @@ _data = {
 &"flash": SubResource("Animation_aw1lf")
 }
 
-[node name="Main" type="Control" unique_id=1170656624]
+[node name="Main" type="Control" unique_id=1170656624 node_paths=PackedStringArray("_highscoreLabel")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -53,6 +53,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_aw1lf")
+_highscoreLabel = NodePath("MarginContainer/Highscore")
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=1965932227]
 layout_mode = 1

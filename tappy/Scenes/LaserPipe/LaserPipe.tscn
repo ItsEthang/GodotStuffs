@@ -3,14 +3,16 @@
 [ext_resource type="Script" uid="uid://cd2ubht4cpsj2" path="res://Scenes/LaserPipe/LaserPipe.cs" id="1_4oj2c"]
 [ext_resource type="PackedScene" uid="uid://gsjg6ojgmne2" path="res://Scenes/Laser/Laser.tscn" id="1_ebkb0"]
 [ext_resource type="PackedScene" uid="uid://bpdqkw1xnlnay" path="res://Scenes/Pipe/Pipe.tscn" id="2_4oj2c"]
+[ext_resource type="AudioStream" uid="uid://bp821cq4mc67q" path="res://Assets/audio/score.wav" id="4_vjowc"]
 
-[node name="LaserPipe" type="Node2D" unique_id=1178301400 node_paths=PackedStringArray("_visibleNotifier", "_lifeTimer", "_upperPipe", "_lowerPipe", "_laser")]
+[node name="LaserPipe" type="Node2D" unique_id=1178301400 node_paths=PackedStringArray("_visibleNotifier", "_lifeTimer", "_upperPipe", "_lowerPipe", "_laser", "_scoreSound")]
 script = ExtResource("1_4oj2c")
 _visibleNotifier = NodePath("VisibleNotifier2D")
 _lifeTimer = NodePath("LifeTimer")
 _upperPipe = NodePath("UpperPipe")
 _lowerPipe = NodePath("LowerPipe")
 _laser = NodePath("Laser")
+_scoreSound = NodePath("ScoreSound")
 
 [node name="Laser" parent="." unique_id=1371732248 instance=ExtResource("1_ebkb0")]
 
@@ -28,3 +30,6 @@ position = Vector2(54, 0)
 wait_time = 15.0
 one_shot = true
 autostart = true
+
+[node name="ScoreSound" type="AudioStreamPlayer" parent="." unique_id=641917878]
+stream = ExtResource("4_vjowc")

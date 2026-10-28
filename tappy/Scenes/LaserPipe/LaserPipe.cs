@@ -10,8 +10,10 @@ public partial class LaserPipe : Node2D
 	[Export] private Area2D _upperPipe;
 	[Export] private Area2D _lowerPipe;
 	[Export] private Area2D _laser;
+	[Export] private AudioStreamPlayer _scoreSound;
 	// Called when the node enters the scene tree for the first time.
 	private Node2D node;
+	private bool _isActive = true;
 	public override void _Ready()
 	{
 		_visibleNotifier.ScreenExited += OnScreenExit;
@@ -19,22 +21,43 @@ public partial class LaserPipe : Node2D
 		_upperPipe.BodyEntered += OnPipeCollision;
 		_lowerPipe.BodyEntered += OnPipeCollision;
 		_laser.BodyExited += OnPointScored;
+		SignalHub.Instance.OnTappyDied += OnTappyDied;
 	}
 
-	private void OnPointScored(Node2D body)
+	    public override void _ExitTree()
+	{
+		SignalHub.Instance.OnTappyDied -= OnTappyDied;
+	}
+
+    private void OnTappyDied()
+    {
+        DisconnectLaserSignal();
+    }
+
+    private void OnPointScored(Node2D body)
 	{
 		if (body is Tappy)
 		{
-			GD.Print("Score: ");
+			_scoreSound.Play();
+			ScoreManager.EmitOnScored();
+			DisconnectLaserSignal();
 		}
 	}
-
 
 	private void OnPipeCollision(Node2D body)
 	{
 		if (body is Tappy)
 		{
 			(body as Tappy).Die();
+		}
+	}
+
+	private void DisconnectLaserSignal()
+	{
+		if (_isActive)
+		{
+			_laser.BodyExited -= OnPointScored;
+			this._isActive = false;
 		}
 	}
 
